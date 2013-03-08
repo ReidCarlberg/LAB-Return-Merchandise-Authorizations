@@ -1,0 +1,23 @@
+<apex:page standardController="RMA__c" extensions="RMA_SelectLineItemsController">
+    
+    <h1>Add RMA Items from Opportunity</h1>
+
+    <apex:pageBlock rendered="{!(lineItems == null || lineItems.size == 0)}">
+    	<h1>Nothing to add!</h1>
+    	<p>This is either because you do not have an opportunity associated
+    	with the RMA, or because you have already associated all line items
+    	from the related opportunity with this RMA.</p>
+    	<p><apex:outputLink value="/{!target.id}">Return to RMA</apex:outputLink></p>
+    </apex:pageBlock>
+    <apex:pageBlock rendered="{!(lineItems != null && lineItems.size != 0)}">
+	    <apex:form >
+
+	        <apex:selectList value="{!rmaLines}" multiselect="true" size="10">
+	            <apex:selectOptions value="{!lineItems}"/>
+	        </apex:selectList><p/>      
+
+	        <apex:commandButton value="Add Lines to RMA" action="{!addRmaItems}" />
+	    </apex:form>
+    </apex:pageBlock>
+    
+</apex:page>

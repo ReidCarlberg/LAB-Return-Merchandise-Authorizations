@@ -1,0 +1,13 @@
+#Fri Mar 08 14:01:08 CST 2013
+eclipse.preferences.version=1
+endpointApiVersion=25.0
+endpointEnvironment=Production/Developer Edition
+endpointServer=www.salesforce.com
+httpsProtocol=true
+ideVersion=25.0
+keependpoint=false
+metadataFormatVersion=25.0
+namespacePrefix=reid_labs_526
+packageName=unpackaged
+readTimeout=400
+username=reid@labs.526

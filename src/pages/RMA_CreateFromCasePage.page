@@ -1,0 +1,5 @@
+<apex:page standardController="Case" extensions="RMA_CreateFromObjectController" action="{!createFromObject}" >
+  <h1>Please Wait A Moment</h1>
+  
+  
+</apex:page>

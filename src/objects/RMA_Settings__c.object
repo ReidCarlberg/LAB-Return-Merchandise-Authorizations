@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <customSettingsVisibility>Public</customSettingsVisibility>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>Default_Days_to_Complete_Return__c</fullName>
+        <defaultValue>14</defaultValue>
+        <externalId>false</externalId>
+        <label>Default Days to Complete Return</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Max_Case_Age__c</fullName>
+        <defaultValue>30</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the maximum number of days old a case can be in order to create an RMA using the Create RMA button.  Compared to &quot;Created Date&quot;.</inlineHelpText>
+        <label>Max Case Age</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Max_Opportunity_Age__c</fullName>
+        <defaultValue>30</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the maximum number of days old an opportunity can be and still have it be possible to create an RMA from the Create RMA button.  Compared to close date.</inlineHelpText>
+        <label>Max Opportunity Age</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Restocking_Fee__c</fullName>
+        <defaultValue>0.15</defaultValue>
+        <externalId>false</externalId>
+        <label>Restocking Fee</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <label>RMA Settings</label>
+</CustomObject>

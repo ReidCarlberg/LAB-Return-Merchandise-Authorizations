@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>RMAs</relationshipLabel>
+        <relationshipName>RMAs</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Calculated_Return_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>CreatedDate +  $Setup.RMA_Settings__c.Default_Days_to_Complete_Return__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Calculated Return Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Case__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Case</label>
+        <referenceTo>Case</referenceTo>
+        <relationshipLabel>RMAs</relationshipLabel>
+        <relationshipName>RMAs</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>RMAs</relationshipLabel>
+        <relationshipName>RMAs</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>IsOpportunityTooOld__c</fullName>
+        <externalId>false</externalId>
+        <formula>if(( DateValue(CreatedDate) - Opportunity__r.CloseDate &gt;  $Setup.RMA_Settings__c.Max_Opportunity_Age__c ), &apos;Yes&apos;, &apos;No&apos;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Is Opportunity Too Old?</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Notes__c</fullName>
+        <externalId>false</externalId>
+        <label>Notes</label>
+        <length>32768</length>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Opportunity__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Opportunity</label>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipLabel>RMAs</relationshipLabel>
+        <relationshipName>RMAs</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Override_Due_Date_Reason__c</fullName>
+        <externalId>false</externalId>
+        <label>Override Due Date Reason</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Customer Request</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Extenuating Services</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Override_Due_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Override Due Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>RMA_Credit_Amount__c</fullName>
+        <externalId>false</externalId>
+        <formula>Returned_Total_Value__c -  RMA_Restocking_Amount__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>RMA Credit Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>RMA_Item_Count__c</fullName>
+        <externalId>false</externalId>
+        <label>RMA Item Count</label>
+        <summaryForeignKey>RMA_Item__c.RMA__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>RMA_Open_Items__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Number of items flagged for return which are not yet returned.</inlineHelpText>
+        <label>RMA Open Items</label>
+        <summaryFilterItems>
+            <field>RMA_Item__c.RMA_Item_Complete__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </summaryFilterItems>
+        <summaryForeignKey>RMA_Item__c.RMA__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>RMA_Restocking_Amount__c</fullName>
+        <externalId>false</externalId>
+        <formula>Returned_Total_Value__c *  Restocking_Charge__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>RMA Restocking Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>RMA_Return_Due_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( ISBLANK( Override_Due_Date__c ) ,  Calculated_Return_Date__c ,  Override_Due_Date__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>RMA Return Due Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Restocking_Charge__c</fullName>
+        <defaultValue>$Setup.RMA_Settings__c.Restocking_Fee__c</defaultValue>
+        <externalId>false</externalId>
+        <label>Restocking Charge</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Returned_Total_Value__c</fullName>
+        <externalId>false</externalId>
+        <label>Returned Total Value</label>
+        <summarizedField>RMA_Item__c.Return_Value__c</summarizedField>
+        <summaryForeignKey>RMA_Item__c.RMA__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Open</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Waiting on Return</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Return Complete</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Return Abandoned</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <label>RMA</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>RMA{000000}</displayFormat>
+        <label>RMA Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>RMAs</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Account__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Contact__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Opportunity__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Case__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>RMA_Return_Due_Date__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Status__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Account__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>RMA_Return_Due_Date__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Status__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Account__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>RMA_Return_Due_Date__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Status__c</lookupPhoneDialogsAdditionalFields>
+        <searchResultsAdditionalFields>Account__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>RMA_Return_Due_Date__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Status__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>Opportunity_Close_Date_LTE_Limit</fullName>
+        <active>true</active>
+        <errorConditionFormula>IsOpportunityTooOld__c  == &apos;Yes&apos;</errorConditionFormula>
+        <errorMessage>That opportunity is too old.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Override_Due_Date_Requires_Reason</fullName>
+        <active>true</active>
+        <errorConditionFormula>IF( and(NOT( ISBLANK( Override_Due_Date__c ) ) ,  ISPICKVAL( Override_Due_Date_Reason__c , &apos;&apos;) ), true, false)</errorConditionFormula>
+        <errorMessage>You must select an override reason if you override the due date.</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>RMA_AddOpportunityLineItems</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Add Line Items from Opportunity</masterLabel>
+        <openType>sidebar</openType>
+        <page>RMA_AddRmaItems</page>
+        <protected>false</protected>
+    </webLinks>
+</CustomObject>

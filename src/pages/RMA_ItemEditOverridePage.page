@@ -1,0 +1,30 @@
+<apex:page standardController="RMA_Item__c">
+
+    
+    <apex:form >
+    
+        <apex:pageBlock title="RMA Item - {!RMA_Item__c.name}" mode="edit">
+        
+        <apex:messages />
+        
+        <p>RMA: <apex:outputText value="{!RMA_Item__c.RMA__r.Name}" /></p>
+        
+        <p>Account: <apex:outputText value="{!RMA_Item__c.RMA__r.Account__r.Name}" /></p>
+        
+        <p>Opportunity: <apex:outputText value="{!RMA_Item__c.RMA__r.Opportunity__r.Name}" /></p>
+        
+        <p>Original Quantity: <apex:outputText value="{!RMA_Item__c.OLI_Original_Quantity__c}" /></p>
+    
+        <p>Planned Return Quantity: <apex:inputField label="Planned Return Quantity" value="{!RMA_Item__c.Return_Quantity__c}" /></p>
+
+        <p>Actual Received Quantity: <apex:inputField label="Actual Received Quantity" value="{!RMA_Item__c.Received_Quantity__c}" /></p>
+        
+        <p>Item Complete? <apex:inputField value="{!RMA_Item__c.RMA_Item_Complete__c}" /></p>
+
+        <apex:commandButton value="Update" action="{!save}" />
+        
+        </apex:pageBlock>
+        
+    </apex:form>
+
+</apex:page>

@@ -1,0 +1,11 @@
+<apex:page standardController="Opportunity" extensions="RMA_CreateFromObjectController" action="{!createFromObject}">
+
+  <h1>Attempting to create RMA from Opportunity..</h1>
+
+  <h1>Failed.</h1>
+  
+  <apex:messages />
+  
+  <h1><apex:outputLink value="/{!id}">Click here to return to your original page.</apex:outputLink></h1>
+  
+</apex:page>
