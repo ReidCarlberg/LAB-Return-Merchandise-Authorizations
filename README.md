@@ -10,3 +10,5 @@ If you have ideas on how to improve it, feel free to let me know or fork the hec
 Here's a beta managed package in case you're interested.
 https://login.salesforce.com/packaging/installPackage.apexp?p0=04tE0000000UrFQ
 
+Here's the unmanaged package.
+https://login.salesforce.com/packaging/installPackage.apexp?p0=04tE0000000UsF1
